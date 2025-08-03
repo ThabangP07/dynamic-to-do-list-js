@@ -31,4 +31,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 1. Add click listener to "Add" button
     addButton.addEventListener('click', addTask);
+
+    // 2. Add Enter key support to input field
+    taskInput.addEventListener('keypress', function(event) {
+        if (event.key === "Enter") {
+            addTask();
+        }
+    });
 });
