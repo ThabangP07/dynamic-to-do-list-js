@@ -38,4 +38,9 @@ document.addEventListener('DOMContentLoaded', function() {
             addTask();
         }
     });
+
+    // 3. Run addTask once when the DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', function () {
+        addTask(); 
+    });
 });
