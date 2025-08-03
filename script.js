@@ -28,4 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
             taskInput.value = "";
         }
     }
+
+    // 1. Add click listener to "Add" button
+    addButton.addEventListener('click', addTask);
 });
