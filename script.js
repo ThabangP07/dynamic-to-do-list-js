@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function loadTasks() {
         const storedTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
-        
+
         storedTasks.forEach(taskText => addTask(taskText, false)); 
     }
 
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const taskInput = document.getElementById('task-input');
     const taskList = document.getElementById('task-list');
 
-    function addTask() {
+    function addTask(taskText, save = true) {
         let taskText = taskInput.value.trim();
 
         if (!taskText) {
@@ -34,6 +34,12 @@ document.addEventListener('DOMContentLoaded', function() {
             listItem.appendChild(removeBtn);
             taskList.appendChild(listItem);
 
+            if (save) {
+                const storedTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+                storedTasks.push(taskText);
+                localStorage.setItem('tasks', JSON.stringify(storedTasks));
+            }
+
             taskInput.value = "";
         }
     }
@@ -50,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 3. Run addTask once when the DOM is fully loaded
     document.addEventListener('DOMContentLoaded', function () {
+        loadTasks();
         addTask(); 
     });
 });
