@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // create a new button for the li element
             const removeBtn = document.createElement('button');
             removeBtn.textContent = 'Remove';
-            removeBtn.className = 'remove-btn';
+            removeBtn.classList.add('remove-btn');
 
             // add an event listener to remove the li element
             removeBtn.addEventListener('click', function() {
