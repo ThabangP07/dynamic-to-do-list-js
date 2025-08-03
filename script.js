@@ -8,6 +8,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (!taskText) {
             alert('Enter a to-do item in the input field');
+        } else {
+            const listItem = document.createElement('li');
+            listItem.textContent = taskText;
+            
         }
     }
 
